@@ -1,7 +1,7 @@
 #!/bin/bash
 # Simple script to commit and push changes
 
-hugo --baseURL=https://www.allenverse.tech/
+hugo
 
 # Add all changes
 git add --all
