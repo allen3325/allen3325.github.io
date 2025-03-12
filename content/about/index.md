@@ -1,6 +1,6 @@
 <h1 align="center">Hi 👋, I'm Allen, Welcome to my blog.</h1>
 
-# What is on this blog?
+## What is on this blog?
 
 ### 這網站會記錄我的各種心得，範圍很廣，包括
 - 📄 酷酷的 paper 分享
@@ -10,7 +10,7 @@
 - 💻 Backend and Software Engineering
 - 🎬 電影觀後分享
 
-# What am I reading and preparing to share?
+## What am I reading and preparing to share?
 
 ### 🧠 DeepLearning
 - [MIT 6.S191 Introduction to Deep Learning](https://introtodeeplearning.com/)
@@ -23,7 +23,7 @@
 ![System Design Interview – An Insider's Guide](https://books.google.com.tw/books/content?id=TZWmzQEACAAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE70fICSLYhwZGBk_rW3Ot7Bzn6YeqzUD93sUkfUf3Gt0pV8hCYbriwEyzuhokxRjnMWIgySy1rB4s2sfWHe5BIBQk7MFAgNhjpoak8n-oHSGAXIr3ZOaWJcOY2W8Giqy3CFm8EBu)
 - [System Design Interview – An Insider's Guide](https://books.google.com.tw/books/about/System_Design_Interview.html?id=TZWmzQEACAAJ&redir_esc=y)
 
-# What is on my github?
+## What is on my github?
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=allen3325&label=Profile%20views&color=0e75b6&style=plastic" alt="allen3325" /> </p>
 
