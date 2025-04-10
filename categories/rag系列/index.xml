@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>RAG系列 - 分類 - Allen&#39;s blog</title>
+        <link>http://localhost:1313/categories/rag%E7%B3%BB%E5%88%97/</link>
+        <description>RAG系列 - 分類 - Allen&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-tw</language><managingEditor>zhangzhewei168@gmail.com (Che-Wei Chang)</managingEditor>
+            <webMaster>zhangzhewei168@gmail.com (Che-Wei Chang)</webMaster><lastBuildDate>Thu, 10 Apr 2025 15:52:42 &#43;0800</lastBuildDate><atom:link href="http://localhost:1313/categories/rag%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>(RAG系列-2)RAG 技術：為 AI 模型增添參考資料的能力</title>
+    <link>http://localhost:1313/rag_concept/</link>
+    <pubDate>Thu, 10 Apr 2025 15:52:42 &#43;0800</pubDate>
+    <author>Che-Wei Chang</author>
+    <guid>http://localhost:1313/rag_concept/</guid>
+    <description><![CDATA[<h1 id="rag-技術為-ai-模型增添參考資料的能力">RAG 技術：為 AI 模型增添參考資料的能力</h1>
+<h2 id="rag-是什麼">RAG 是什麼？</h2>
+<p>在人工智能領域中，RAG（Retrieval-Augmented Generation，檢索增強生成）技術正逐漸成為提升大型語言模型（LLM）表現的關鍵方法。但它究竟是什麼，為何如此重要？讓我們一起深入探討。</p>]]></description>
+</item>
+</channel>
+</rss>
