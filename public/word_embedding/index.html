@@ -186,7 +186,7 @@
 <h3 id="相似度的計算方法">相似度的計算方法</h3>
 <p>那麼，如何計算這種相似度呢？</p>
 <p>首先，我們可以使用直線距離公式：</p>
-$$ 距離 = sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} $$<p>距離越小，表示兩個詞嵌入越相似，意味著語義越接近。但這種方法存在一個問題：距離是無界的，難以判斷「300」這樣的距離值究竟意味著相近還是相遠。</p>
+$$ 距離 = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} $$<p>距離越小，表示兩個詞嵌入越相似，意味著語義越接近。但這種方法存在一個問題：距離是無界的，難以判斷「300」這樣的距離值究竟意味著相近還是相遠。</p>
 <p>因此，我們採用一種範圍在 <code>-1~1</code> 之間的度量方式：<strong>餘弦相似度</strong>（Cosine Similarity）：</p>
 $$ Cosine \ Similarity = \frac{x_1 \cdot x_2 + y_1 \cdot y_2}{\sqrt{x_1^2 + y_1^2} \cdot \sqrt{x_2^2 + y_2^2}} $$<p>這個公式的結果範圍是：</p>
 <ul>
@@ -246,7 +246,7 @@ $$ Cosine \ Similarity = \frac{x_1 \cdot x_2 + y_1 \cdot y_2}{\sqrt{x_1^2 + y_1^
 <p>在實際應用中，每種語言都有許多複雜的語義現象，這就是為什麼我們選擇基於 Attention 機制的 Transformer 架構作為編碼器的基礎。在後續討論中，我們將把這類編碼器統稱為「密集檢索器」（Dense Retriever）。</p>
 <h2 id="實際應用簡單的相似度計算示例">實際應用：簡單的相似度計算示例</h2>
 <p>以下是一個簡單的程式碼示例，展示如何計算句子之間的相似度：</p>
-<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
     <div class="code-header language-python">
         <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
         <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
