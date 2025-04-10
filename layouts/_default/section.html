@@ -8,7 +8,6 @@
         <h2 class="single-title animated pulse faster">
             {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" -}}<sup>{{ len .Pages }}</sup>
         </h2>
-  
         {{- /* Paginate */ -}}
         {{- if .Pages -}}
             {{- $pages := .Pages.GroupByDate "2006-01" -}}

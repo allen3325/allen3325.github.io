@@ -1,0 +1,41 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>RAG技術指南 - 標籤 - Allen&#39;s blog</title>
+        <link>https://www.allenverse.tech/tags/rag%E6%8A%80%E8%A1%93%E6%8C%87%E5%8D%97/</link>
+        <description>RAG技術指南 - 標籤 - Allen&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-tw</language><managingEditor>zhangzhewei168@gmail.com (Che-Wei Chang)</managingEditor>
+            <webMaster>zhangzhewei168@gmail.com (Che-Wei Chang)</webMaster><lastBuildDate>Thu, 10 Apr 2025 16:02:50 &#43;0800</lastBuildDate><atom:link href="https://www.allenverse.tech/tags/rag%E6%8A%80%E8%A1%93%E6%8C%87%E5%8D%97/" rel="self" type="application/rss+xml" /><item>
+    <title>(RAG技術指南-3)自然語言處理的關鍵技術：從詞嵌入到 Transformer</title>
+    <link>https://www.allenverse.tech/word_embedding/</link>
+    <pubDate>Thu, 10 Apr 2025 16:02:50 &#43;0800</pubDate>
+    <author>Che-Wei Chang</author>
+    <guid>https://www.allenverse.tech/word_embedding/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://imgur.com/RafkQ8I.png" referrerpolicy="no-referrer">
+            </div><blockquote>
+<p>文章深入介紹自然語言處理核心技術，從基本詞嵌入到革命性的Transformer模型，展示如何讓電腦理解人類語言的語義關係。</p></blockquote>]]></description>
+</item>
+<item>
+    <title>(RAG技術指南-2)RAG 技術：為 AI 模型增添參考資料的能力</title>
+    <link>https://www.allenverse.tech/rag_concept/</link>
+    <pubDate>Thu, 10 Apr 2025 15:52:42 &#43;0800</pubDate>
+    <author>Che-Wei Chang</author>
+    <guid>https://www.allenverse.tech/rag_concept/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://imgur.com/RafkQ8I.png" referrerpolicy="no-referrer">
+            </div><blockquote>
+<p>RAG技術為大型語言模型提供參考外部資料能力，解決知識更新困難與幻覺問題，讓AI能隨世界變化更新知識庫。</p></blockquote>]]></description>
+</item>
+<item>
+    <title>(RAG技術指南-1)技術指南：從基礎到應用</title>
+    <link>https://www.allenverse.tech/rag_introduce/</link>
+    <pubDate>Thu, 10 Apr 2025 13:32:28 &#43;0800</pubDate>
+    <author>Che-Wei Chang</author>
+    <guid>https://www.allenverse.tech/rag_introduce/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="https://imgur.com/RafkQ8I.png" referrerpolicy="no-referrer">
+            </div><blockquote>
+<p>這是一系列將從基礎知識到核心技術，全面介紹檢索增強生成（RAG）的部落格文章，旨在幫助對大型語言模型應用有興趣的讀者建立系統性理解。</p></blockquote>]]></description>
+</item>
+</channel>
+</rss>

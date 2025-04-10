@@ -2,13 +2,20 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://www.allenverse.tech/word_embedding/</loc><lastmod>2025-04-10T16:02:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.allenverse.tech/</loc><lastmod>2025-04-10T16:02:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.allenverse.tech/categories/</loc><lastmod>2025-04-10T16:02:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.allenverse.tech/categories/llm/</loc><lastmod>2025-04-10T16:02:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.allenverse.tech/tags/llm/</loc><lastmod>2025-04-10T16:02:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.allenverse.tech/posts/</loc><lastmod>2025-04-10T16:02:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.allenverse.tech/categories/rag%E6%8A%80%E8%A1%93%E6%8C%87%E5%8D%97/</loc><lastmod>2025-04-10T16:02:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.allenverse.tech/tags/rag%E6%8A%80%E8%A1%93%E6%8C%87%E5%8D%97/</loc><lastmod>2025-04-10T16:02:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.allenverse.tech/tags/</loc><lastmod>2025-04-10T16:02:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.allenverse.tech/rag_concept/</loc><lastmod>2025-04-10T15:52:42&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://www.allenverse.tech/rag_introduce/</loc><lastmod>2025-04-10T13:32:28&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>https://www.allenverse.tech/interstellar/</loc><lastmod>2025-03-12T20:48:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>https://www.allenverse.tech/</loc><lastmod>2025-03-12T20:59:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>https://www.allenverse.tech/categories/</loc><lastmod>2025-03-12T20:48:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
             <loc>https://www.allenverse.tech/categories/movie/</loc><lastmod>2025-03-12T20:48:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
             <loc>https://www.allenverse.tech/tags/movie/</loc><lastmod>2025-03-12T20:48:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>https://www.allenverse.tech/posts/</loc><lastmod>2025-03-12T20:48:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>https://www.allenverse.tech/tags/</loc><lastmod>2025-03-12T20:48:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
             <loc>https://www.allenverse.tech/%E5%85%A8%E9%9D%A2%E5%95%9F%E5%8B%95/</loc><lastmod>2025-03-11T22:57:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
             <loc>https://www.allenverse.tech/%E6%B5%B7%E9%82%8A%E7%9A%84%E6%9B%BC%E5%BE%B9%E6%96%AF%E7%89%B9/</loc><lastmod>2025-03-11T22:57:31&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
             <loc>https://www.allenverse.tech/about/</loc><lastmod>2025-03-12T20:59:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>(RAG技術指南-1)技術指南：從基礎到應用 - Allen&#39;s blog</title><meta name="Description" content="分享 AI、技術、電影的小天地"><meta property="og:url" content="https://www.allenverse.tech/rag_introduce/">
+  <meta property="og:site_name" content="Allen&#39;s blog">
+  <meta property="og:title" content="(RAG技術指南-1)技術指南：從基礎到應用">
+  <meta property="og:description" content="這是一系列將從基礎知識到核心技術，全面介紹檢索增強生成（RAG）的部落格文章，旨在幫助對大型語言模型應用有興趣的讀者建立系統性理解。">
+  <meta property="og:locale" content="zh_tw">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-10T13:32:28+08:00">
+    <meta property="article:modified_time" content="2025-04-10T13:32:28+08:00">
+    <meta property="article:tag" content="LLM">
+    <meta property="article:tag" content="RAG技術指南">
+    <meta property="og:image" content="https://i.imgur.com/9ea7Ahi.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://i.imgur.com/9ea7Ahi.png">
+  <meta name="twitter:title" content="(RAG技術指南-1)技術指南：從基礎到應用">
+  <meta name="twitter:description" content="這是一系列將從基礎知識到核心技術，全面介紹檢索增強生成（RAG）的部落格文章，旨在幫助對大型語言模型應用有興趣的讀者建立系統性理解。">
+<meta name="application-name" content="Allen&#39;s blog">
+<meta name="apple-mobile-web-app-title" content="Allen&#39;s blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="https://i.imgur.com/9ea7Ahi.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://www.allenverse.tech/rag_introduce/" /><link rel="prev" href="https://www.allenverse.tech/interstellar/" /><link rel="next" href="https://www.allenverse.tech/rag_concept/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "(RAG技術指南-1)技術指南：從基礎到應用",
+        "inLanguage": "zh-tw",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/www.allenverse.tech\/rag_introduce\/"
+        },"image": ["https:\/\/i.imgur.com\/9ea7Ahi.png"],"genre": "posts","keywords": "LLM, RAG技術指南","wordcount":  811 ,
+        "url": "https:\/\/www.allenverse.tech\/rag_introduce\/","datePublished": "2025-04-10T13:32:28+08:00","dateModified": "2025-04-10T13:32:28+08:00","publisher": {
+            "@type": "Organization",
+            "name": "Che-Wei Chang","logo": "https:\/\/i.imgur.com\/9ea7Ahi.png"},"author": {
+                "@type": "Person",
+                "name": "Che-Wei Chang"
+            },"description": ""
+    }
+    </script>
+          <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css"
+  integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib"
+  crossorigin="anonymous"
+>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"
+  integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh"
+  crossorigin="anonymous">
+</script>
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js"
+  integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);">
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '\\(', right: '\\)', display: false},  
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+
+        
+    </head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script>(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Allen&#39;s blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://i.imgur.com/9ea7Ahi.png"
+        data-srcset="https://i.imgur.com/9ea7Ahi.png, https://i.imgur.com/9ea7Ahi.png 1.5x, https://i.imgur.com/9ea7Ahi.png 2x"
+        data-sizes="auto"
+        alt="https://i.imgur.com/9ea7Ahi.png"
+        title="https://i.imgur.com/9ea7Ahi.png" />Allen&#39;s blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/" title="About"> About </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Allen&#39;s blog"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://i.imgur.com/9ea7Ahi.png"
+        data-srcset="https://i.imgur.com/9ea7Ahi.png, https://i.imgur.com/9ea7Ahi.png 1.5x, https://i.imgur.com/9ea7Ahi.png 2x"
+        data-sizes="auto"
+        alt="https://i.imgur.com/9ea7Ahi.png"
+        title="https://i.imgur.com/9ea7Ahi.png" />Allen&#39;s blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="About">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">(RAG技術指南-1)技術指南：從基礎到應用</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Che-Wei Chang</a></span>&nbsp;<span class="post-category">收錄於 <a href="/categories/llm/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>LLM</a>&nbsp;<a href="/categories/rag%E6%8A%80%E8%A1%93%E6%8C%87%E5%8D%97/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>RAG技術指南</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2025-04-10">2025-04-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;約 811 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;預計閱讀 2 分鐘&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://imgur.com/RafkQ8I.png"
+        data-srcset="https://imgur.com/RafkQ8I.png, https://imgur.com/RafkQ8I.png 1.5x, https://imgur.com/RafkQ8I.png 2x"
+        data-sizes="auto"
+        alt="https://imgur.com/RafkQ8I.png"
+        title="https://imgur.com/RafkQ8I.png" /></div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#學習路線圖">學習路線圖</a></li>
+    <li><a href="#關於這個系列">關於這個系列</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="rag-技術指南從基礎到應用">RAG 技術指南：從基礎到應用</h1>
+<h2 id="前言">前言</h2>
+<p>身為一位對 AI 應用有熱情的技術愛好者，我想與大家分享一些關於大型語言模型 (LLM) 應用中最常見的技術——檢索增強生成 (RAG)。雖然 AI 領域不斷湧現新趨勢（如推理能力、Agent、Test Time Computing 等），但 RAG 技術因其實用性和相對容易實現的特點，依然是許多 AI 應用的核心。</p>
+<p>這篇部落格將作為我的 RAG 系列文章的引導，希望能幫助對 LLM 應用有興趣的讀者建立起系統性的理解。</p>
+<h2 id="學習路線圖">學習路線圖</h2>
+<p>我計劃按照以下路線圖逐步發布相關文章，帶領大家從基礎知識到核心技術，全面掌握 RAG：</p>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-">
+        <span class="code-title"><i class="arrow fas fa-chevron-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="複製到剪貼板"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><pre tabindex="0"><code>RAG Roadmap
+
+├── 階段 1：基礎知識
+│   ├── * RAG 概念與原理
+│   │   ├── 什麼是 RAG？
+│   │   ├── RAG 的優勢與應用場景：減少幻覺、提高準確性、知識更新
+│   │   └── RAG 的基本流程
+│   ├── * 自然語言處理 (NLP) 基礎
+│   │   ├── 詞嵌入 (Word Embeddings)
+│   │   ├── Transformer 模型
+│   │   └── 大型語言模型 (LLM)
+│   └── * 向量數據庫基礎
+│       ├── 向量表示：將文本轉換為向量
+│       ├── 向量索引：常見的索引類型 (HNSW, ...)
+│       └── 向量相似度計算：Cosine Similarity, Euclidean Distance
+│
+└── 階段 2：核心技術
+    ├── * 兩大檢索
+    │   ├── Dense Retriever
+    │   └── Sparse Retriever(TF-IDF, BM25)
+    ├── * 文檔加載與預處理
+    │   ├── 加載不同來源的文檔：PDF, TXT, CSV, Web Pages, Databases
+    │   └── 文檔清洗：去除噪聲、HTML 標籤等
+    ├── * 文檔分割 (Chunking)
+    │   └── 固定大小分割：Embedding size
+    ├── * 向量化 (Embedding)
+    │   ├── 使用預訓練模型
+    │   └── FineTune Embedding 模型
+    ├── * 向量數據庫
+    │   ├── FAISS
+    │   └── Milvus DB, PGVector, ...
+    ├── * RAG 優化
+    │   ├── Re-ranking
+    │   ├── Query Expansion
+    │   └── Fine-tuning LLM
+    └── * 生成策略
+        ├── Prompt Engineering
+        └── 生成參數調整：Temperature, Top-p, ...</code></pre></div>
+<h2 id="關於這個系列">關於這個系列</h2>
+<p>每個標記星號（*）的主題都將會有一篇獨立的深入解析文章。我計劃每週更新一到兩篇，帶領大家循序漸進地掌握 RAG 技術。</p>
+<p>如果您對某個特定主題特別感興趣，或者有任何問題與建議，歡迎在文章下方留言，或通過我的聯絡方式與我交流。我也很樂意根據讀者的反饋調整後續文章的內容和順序。</p>
+<p>讓我們一起探索 RAG 的奧妙，為 AI 應用開發注入新的可能性！</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2025-04-10</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/rag_introduce/index.md" target="_blank">閱讀原始文檔</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://www.allenverse.tech/rag_introduce/" data-hashtag="LLM"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://www.allenverse.tech/rag_introduce/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://www.allenverse.tech/rag_introduce/" data-title="(RAG技術指南-1)技術指南：從基礎到應用"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@14.9.0/icons/line.svg" aria-hidden="true"></i></a><a href="https://t.me/share/url?url=https%3a%2f%2fwww.allenverse.tech%2frag_introduce%2f&amp;text=%28RAG%e6%8a%80%e8%a1%93%e6%8c%87%e5%8d%97-1%29%e6%8a%80%e8%a1%93%e6%8c%87%e5%8d%97%ef%bc%9a%e5%be%9e%e5%9f%ba%e7%a4%8e%e5%88%b0%e6%87%89%e7%94%a8" target="_blank" title="分享到 Telegram"><i class="fab fa-telegram fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/llm/">LLM</a>,&nbsp;<a href="/tags/rag%E6%8A%80%E8%A1%93%E6%8C%87%E5%8D%97/">RAG技術指南</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/interstellar/" class="prev" rel="prev" title="[好雷] 諾蘭系列之『星際效應』- 諾蘭寫給這時代的一封情書"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>[好雷] 諾蘭系列之『星際效應』- 諾蘭寫給這時代的一封情書</a>
+            <a href="/rag_concept/" class="next" rel="next" title="(RAG技術指南-2)RAG 技術：為 AI 模型增添參考資料的能力">(RAG技術指南-2)RAG 技術：為 AI 模型增添參考資料的能力<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.145.0">Hugo</a> 強力驅動 | 主題 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.3.0"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Che-Wei Chang</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden"><a href="#" id="view-comments" class="fixed-button" title="查看評論">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.2/sharer.min.js"></script><script>window.config={"comment":{}};</script><script src="/js/theme.min.js"></script></body>
+</html>
